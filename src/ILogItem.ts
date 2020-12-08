@@ -16,7 +16,7 @@ export interface ILogItem{
   /**
    * logger: log context
    */
-  logger: string,
+  logger?: string,
   /**
    * print: function used to print message in JSON format
    */

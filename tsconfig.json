@@ -1,8 +1,23 @@
 {
   "compilerOptions": {
-      "experimentalDecorators": true,
-      "allowJs": true,
-      "target": "ES2017"
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
+    "importHelpers": true,
+    "removeComments": false,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2017",
+    "sourceMap": false,
+    "allowJs": false,
+    "strict": true,
+    "strictNullChecks": false,
+    "outDir": "lib"
   },
-  "exclude": ["node_modules"]
+  "include": ["src"],
+  "exclude": ["node_modules", "./**/*.spec.ts"]
 }
