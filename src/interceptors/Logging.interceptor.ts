@@ -26,6 +26,6 @@ export class LoggingInterceptor implements NestInterceptor {
   }
 
   constructor(private jsonLogger: JsonLogger) {
-    this.jsonLogger.setContext('http');
+   this.jsonLogger.setContext('http');
   }
 }

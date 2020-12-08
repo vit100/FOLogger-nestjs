@@ -26,7 +26,7 @@ export class JsonLogger extends Logger {
   }
 
   private serialize(logLevel: LogLevel, message: string, context?: string): string {
-    const logItem = new LogItem(logLevel, message, context);
+    const logItem = new LogItem(logLevel, message, context || this.context);
     const serialized = JSON.stringify(logItem);
     return serialized;
   }

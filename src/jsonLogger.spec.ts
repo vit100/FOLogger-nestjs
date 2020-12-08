@@ -18,7 +18,7 @@ describe('JsonLogger.serialize()', () => {
     const module = await Test.createTestingModule({
       imports: [FOLoggerModule],
     }).compile();
-    jsonLogger = module.get<JsonLogger>(JsonLogger);
+    jsonLogger = await module.resolve<JsonLogger>(JsonLogger);
   });
 
   it('should return properly formatted string with LogLevel.INFO', () => {
@@ -83,7 +83,7 @@ describe('JsonLog', () => {
     const module = await Test.createTestingModule({
       imports: [FOLoggerModule],
     }).compile();
-    jsonLogger = module.get<JsonLogger>(JsonLogger);
+    jsonLogger = await module.resolve<JsonLogger>(JsonLogger);
     consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
     serializeSpy = jest.spyOn(jsonLogger, 'serialize').mockImplementation(() => {});
   });
@@ -93,7 +93,7 @@ describe('JsonLog', () => {
   });
 
   it('.log() should call internal method serialize', () => {
-    jsonLogger.log();
+    jsonLogger.log(message, context);;
     expect(serializeSpy).toHaveBeenCalled();
   });
 
@@ -104,7 +104,7 @@ describe('JsonLog', () => {
 
   it('.error() should call internal method serialize', () => {
     // @ts-ignore
-    jsonLogger.error();
+    jsonLogger.error(message, 'trace', context);
     expect(serializeSpy).toHaveBeenCalled();
   });
 
@@ -114,7 +114,7 @@ describe('JsonLog', () => {
   });
 
   it('.warn() should call internal method serialize', () => {
-    jsonLogger.warn();
+    jsonLogger.warn(message, context);
     expect(serializeSpy).toHaveBeenCalled();
   });
 
@@ -124,7 +124,7 @@ describe('JsonLog', () => {
   });
 
   it('.debug() should call internal method serialize', () => {
-    jsonLogger.debug();
+    jsonLogger.debug(message, context);
     expect(serializeSpy).toHaveBeenCalled();
   });
 
@@ -134,7 +134,7 @@ describe('JsonLog', () => {
   });
 
   it('.verbose() should call internal method serialize', () => {
-    jsonLogger.verbose();
+    jsonLogger.verbose(message, context);
     expect(serializeSpy).toHaveBeenCalled();
   });
 
