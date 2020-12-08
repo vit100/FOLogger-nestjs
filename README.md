@@ -2,31 +2,32 @@
 
 nest-js logging module with custom Fusion Operate formatter.
 
-
 ## How to install
 
-1. Install npm package:
+1.  Install npm package:
 
-    ```npm install fologger-nestjs```
+    `npm install fologger-nestjs`
 
-2. Import module into your appication
+2.  Import module into your appication
 
-    ```
-    // app.module.ts
-    import { FOLoggerModule, LoggingInterceptor } from 'fologger-nestjs';
-    ```
-3 Register module import and `LoggingInterceptor` provider
+        ```
+        // app.module.ts
+        import { FOLoggerModule, LoggingInterceptor } from 'fologger-nestjs';
+        ```
 
-    @Module({
-      imports: [FOLoggerModule],
-      providers: [LoggingInterceptor],
-    })
-    export class AppModule {}
-    ```
+    3 Register module import and `LoggingInterceptor` provider
+
+        @Module({
+          imports: [FOLoggerModule],
+          providers: [LoggingInterceptor],
+        })
+        export class AppModule {}
+        ```
 
 ## How to use
 
 In your service register DI `JsonLogger` and use logger instance methods in your class functions:
+
 ```
 @Controller()
 export class AppController {
