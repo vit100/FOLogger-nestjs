@@ -1,6 +1,6 @@
 {
   "name": "fologger-nestjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FusionOperate Logger.",
   "main": "lib/index.js",
   "scripts": {
