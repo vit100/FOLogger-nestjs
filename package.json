@@ -3,6 +3,8 @@
   "version": "1.0.1",
   "description": "FusionOperate Logger.",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": ["lib/**/*"],
   "scripts": {
     "prepublish": "jest",
     "test": "jest",
