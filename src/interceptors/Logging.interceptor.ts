@@ -5,6 +5,10 @@ import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
+  constructor(private jsonLogger: JsonLogger) {
+    this.jsonLogger.setContext('http');
+  }
+
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     this.jsonLogger.log(
       `START: ${context.getClass().name}.${context.getHandler().name}(): ${
@@ -23,9 +27,5 @@ export class LoggingInterceptor implements NestInterceptor {
           ),
         ),
       );
-  }
-
-  constructor(private jsonLogger: JsonLogger) {
-   this.jsonLogger.setContext('http');
   }
 }

@@ -2,7 +2,7 @@ import { Injectable, Logger, LoggerService, Scope } from '@nestjs/common';
 import { LogItem } from './LogItem';
 import { LogLevel } from './LogLevel';
 
-Injectable({ scope: Scope.TRANSIENT });
+@Injectable({ scope: Scope.TRANSIENT })
 export class JsonLogger extends Logger {
   log(message: any, context?: string) {
     const formatted = this.serialize(LogLevel.INFO, message, context);
